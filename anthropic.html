@@ -180,6 +180,39 @@
       margin: 0;
     }
 
+    .visuals {
+      margin-bottom: 3.5rem;
+    }
+
+    .visuals-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .visual-card {
+      padding: 1.4rem;
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 15px 36px rgba(30, 30, 30, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .visual-card img {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(30, 30, 30, 0.1);
+    }
+
+    .visual-caption {
+      margin: 0;
+      font-size: 0.95rem;
+      color: rgba(30, 30, 30, 0.7);
+    }
+
     .embed-card {
       border-radius: 24px;
       overflow: hidden;
@@ -188,10 +221,51 @@
       background: var(--white);
     }
 
-    iframe {
+    .embed-thumb {
       width: 100%;
-      min-height: 720px;
-      border: none;
+      display: block;
+      border-bottom: 1px solid rgba(30, 30, 30, 0.08);
+    }
+
+    .embed-actions {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .embed-note {
+      margin: 0;
+      font-size: 1rem;
+      color: rgba(30, 30, 30, 0.7);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .button-primary {
+      background: var(--mint-accent);
+      color: var(--charcoal-ink);
+      box-shadow: 0 15px 35px rgba(168, 230, 207, 0.4);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 42px rgba(168, 230, 207, 0.55);
     }
 
     footer {
@@ -216,6 +290,10 @@
       .details {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .visuals-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 680px) {
@@ -235,8 +313,8 @@
         grid-template-columns: 1fr;
       }
 
-      iframe {
-        min-height: 560px;
+      .embed-actions {
+        padding: 1.8rem;
       }
     }
   </style>
@@ -260,8 +338,8 @@
       <div class="intro">
         <div class="meta">Claude Community Partners · 2025</div>
         <h1>Claude Community Build Day</h1>
-        <p>Global Brand Studio joined the Claude Community Build Day to design the visuals that welcomed builders into Anthropic’s world. We produced a poster toolkit, motion loops, and a social launch kit that the community team could release quickly.</p>
-        <p>The system uses soft gradients, bold type, and modular layouts that adapt from print to screens—keeping Claude’s voice present without feeling overly corporate.</p>
+        <p>Global Brand Studio joined the Claude Community Build Day to design the visuals that welcomed builders into Anthropic’s world. We produced the poster series, slide deck, and event page copy while shaping the messages the Claude team sent to their community.</p>
+        <p>We also provided on-site support—guiding set-up, signage, and wayfinding—so the event felt consistent from invitation to closing circle.</p>
       </div>
       <img src="assets/anthropic_event/anthropic_event.avif" alt="Claude Community Build Day poster concept by GBS">
     </section>
@@ -269,20 +347,37 @@
     <section class="details">
       <article class="detail-card">
         <h2 class="detail-title">Deliverables</h2>
-        <p class="detail-text">Poster series, motion loops, social graphics, on-site signage templates.</p>
+        <p class="detail-text">Poster series, slide deck, marketing messages, event page writing, on-site signage toolkit.</p>
       </article>
       <article class="detail-card">
         <h2 class="detail-title">Project Role</h2>
-        <p class="detail-text">Claude Community Partners — visual identity, art direction, and rollout support.</p>
+        <p class="detail-text">Claude Community Partners — visual direction, copywriting, day-of event support.</p>
       </article>
       <article class="detail-card">
         <h2 class="detail-title">Tools</h2>
-        <p class="detail-text">Figma, After Effects, Notion launch checklist.</p>
+        <p class="detail-text">Figma, Canva, Notion.</p>
       </article>
     </section>
 
+    <section class="visuals">
+      <div class="visuals-grid">
+        <figure class="visual-card">
+          <img src="assets/anthropic_event/Build%20with%20Claude.jpg" alt="Claude Build Day hero poster designed by GBS">
+          <figcaption class="visual-caption">Digital poster announcing the Claude Community Build Day.</figcaption>
+        </figure>
+        <figure class="visual-card">
+          <img src="assets/anthropic_event/event_page_screenshot.png" alt="Claude Community Build Day poster installed on site">
+          <figcaption class="visual-caption">Printed poster on site, guiding attendees through registration and set-up.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="embed-card">
-      <iframe title="Claude Community Build Day on Luma" src="https://luma.com/rh6y6y9p" allowfullscreen></iframe>
+      <img class="embed-thumb" src="assets/anthropic_event/event_page_screenshot.png" alt="Claude Community Build Day event page preview">
+      <div class="embed-actions">
+        <p class="embed-note">Explore the event schedule, RSVP details, and community updates on Luma.</p>
+        <a class="button button-primary" href="https://luma.com/rh6y6y9p" target="_blank" rel="noopener">Visit the Luma event page</a>
+      </div>
     </section>
   </main>
 
