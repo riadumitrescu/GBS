@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Brand Studio · Minerva University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --charcoal-ink: #1E1E1E;
+      --soft-sand: #F5F1EC;
+      --mint-accent: #A8E6CF;
+      --warm-coral: #FF8A80;
+      --white: #FFFFFF;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-sand);
+      color: var(--charcoal-ink);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(245, 241, 236, 0.9);
+      border-bottom: 1px solid rgba(30, 30, 30, 0.08);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      color: var(--charcoal-ink);
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      padding: 0.35rem;
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(30, 30, 30, 0.08);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--charcoal-ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      margin: 0 0 1rem;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 4vw, 4rem);
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: center;
+      padding: 5rem 0 4rem;
+      background: linear-gradient(135deg, #F5F1EC 0%, #FFFFFF 70%);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 24px 60px rgba(30, 30, 30, 0.08);
+    }
+
+    .hero-content {
+      padding: 0 3rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.7);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-description {
+      max-width: 30rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-services {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-services li {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(168, 230, 207, 0.35);
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .button-primary {
+      background: var(--mint-accent);
+      color: var(--charcoal-ink);
+      box-shadow: 0 15px 35px rgba(168, 230, 207, 0.4);
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 42px rgba(168, 230, 207, 0.55);
+    }
+
+    .button-secondary {
+      background: transparent;
+      border-color: rgba(30, 30, 30, 0.2);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      border-color: rgba(30, 30, 30, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .hero-media {
+      position: relative;
+      height: 100%;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(95%);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 138, 128, 0.12);
+      color: var(--warm-coral);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-image {
+      padding: 2.5rem;
+      background: var(--white);
+      border-radius: 24px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 18px 40px rgba(30, 30, 30, 0.08);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1.8rem;
+      border-radius: 24px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      background: var(--white);
+      box-shadow: 0 12px 32px rgba(30, 30, 30, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(30, 30, 30, 0.1);
+    }
+
+    .project-media {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(30, 30, 30, 0.05);
+    }
+
+    .placeholder-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      background: linear-gradient(135deg, rgba(168, 230, 207, 0.35), rgba(255, 138, 128, 0.2));
+      color: rgba(30, 30, 30, 0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .project-meta {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.6);
+    }
+
+    .placeholder-tag {
+      display: inline-block;
+      margin-top: auto;
+      padding-top: 1rem;
+      font-size: 0.95rem;
+      color: rgba(30, 30, 30, 0.65);
+    }
+
+    .join {
+      padding: 3.5rem;
+      border-radius: 28px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      background: linear-gradient(135deg, rgba(168, 230, 207, 0.18), rgba(255, 138, 128, 0.12));
+      box-shadow: 0 20px 50px rgba(30, 30, 30, 0.08);
+      text-align: center;
+    }
+
+    .join h2 {
+      margin-bottom: 1rem;
+    }
+
+    .join p {
+      max-width: 32rem;
+      margin: 0 auto 2rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(30, 30, 30, 0.12);
+      padding: 2rem 1.5rem 3rem;
+      background: var(--charcoal-ink);
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-meta {
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.95rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-link svg {
+      width: 18px;
+      height: 18px;
+      fill: rgba(255, 255, 255, 0.85);
+      transition: fill 0.3s ease;
+    }
+
+    .footer-link:hover,
+    .footer-link:focus-visible {
+      color: var(--mint-accent);
+      transform: translateY(-2px);
+    }
+
+    .footer-link:hover svg,
+    .footer-link:focus-visible svg {
+      fill: var(--mint-accent);
+    }
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 3.5rem 2rem;
+      }
+
+      .hero-content {
+        padding: 0;
+      }
+
+      .hero-media {
+        order: -1;
+        height: 320px;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .join {
+        padding: 2.5rem 1.8rem;
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 2.5rem 1.2rem 4rem;
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 8vw, 3.4rem);
+      }
+
+      .hero-tagline {
+        font-size: 0.95rem;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="#top" class="brand">
+        <img class="brand-mark" src="assets/gbs_logo/gbs_png.png" alt="GBS logo">
+        <span class="brand-text">
+          <span class="brand-name">Global Brand Studio</span>
+          <span class="brand-sub">Minerva University</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#join">Join</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero fade-section" id="top">
+      <div class="hero-content">
+        <div class="badge">Student-led design studio</div>
+        <div class="hero-tagline">Global Brand Studio (GBS)</div>
+        <h1>Designing brands for a more human, creative future.</h1>
+        <p class="hero-description">We build clear, warm brand systems for events, products, and communities that want to feel both global and personal.</p>
+        <ul class="hero-services">
+          <li>Brand identity</li>
+          <li>Event visuals</li>
+          <li>Motion & social kits</li>
+          <li>AI storytelling</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore our work</a>
+          <a class="button button-secondary" href="#join">Join the collective</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/anthropic_event/poster_claude_event_lobby.jpeg" alt="GBS designed visuals for Anthropic's Claude Build Day">
+      </div>
+    </section>
+
+    <section class="split fade-section" id="about" data-observe>
+      <div class="about-copy">
+        <h2>About Global Brand Studio</h2>
+        <p>Global Brand Studio is a student-led team at Minerva University. We design brand identities, event worlds, and storytelling tools for partners who want to connect with people in a thoughtful way.</p>
+        <p>Every project starts with research: who the audience is, how they gather, and what emotions they should feel. From there, we create clear visual systems and practical assets that teams can launch right away.</p>
+      </div>
+      <div class="about-image">
+        <img src="assets/gbs_logo/gbs_png.png" alt="Global Brand Studio logo">
+      </div>
+    </section>
+
+    <section class="fade-section" id="projects" data-observe>
+      <h2>Selected Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-media">
+            <img src="assets/anthropic_event/anthropic_event.avif" alt="Claude Community event poster system by GBS">
+          </div>
+          <div>
+            <div class="project-meta">2025 · Claude Community Partners</div>
+            <h3>Claude Community Build Day</h3>
+            <p>As Claude Community Partners we produced the event poster system: a modular visual identity, motion loops, and social graphics that gave the community meet-up a warm, future-forward feel.</p>
+          </div>
+          <a class="button button-secondary" href="https://luma.place" target="_blank" rel="noopener">View event highlight</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media">
+            <img src="assets/ai_consensus/ai_consensus_logo.png" alt="AI Consensus brand work in progress">
+          </div>
+          <div>
+            <div class="project-meta">Upcoming · Buenos Aires</div>
+            <h3>AI Consensus x GBS</h3>
+            <p>We’re crafting the event story, brand system, and launch kit for a community gathering on AI alignment in Latin America. Expect a bilingual identity built for panels, workshops, and night events.</p>
+          </div>
+          <div class="placeholder-tag">Learn more soon.</div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-media placeholder-media">
+            Visual set in progress
+          </div>
+          <div>
+            <div class="project-meta">In Planning</div>
+            <h3>Our House x GBS</h3>
+            <p>We’re designing a pop-up space for designers, writers, and engineers to share tools and stories. The system will include wayfinding, cozy print pieces, and a digital recap kit.</p>
+          </div>
+          <div class="placeholder-tag">Launching this fall.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="join fade-section" id="join" data-observe>
+      <h2>Join Us</h2>
+      <p>We’re building a global design studio made of students, alumni, and friends of Minerva. If you care about smart, people-first branding, let’s team up.</p>
+      <a class="button button-primary" href="https://forms.gle/placeholder" target="_blank" rel="noopener">Join the GBS Collective</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-meta">© 2025 Global Brand Studio — Minerva University</div>
+      <div class="footer-links">
+        <a class="footer-link" href="https://instagram.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm10.5 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          </svg>
+          Instagram
+        </a>
+        <a class="footer-link" href="https://luma.place" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4h16a2 2 0 0 1 2 2v2.5l-10 5-10-5V6a2 2 0 0 1 2-2zm-2 8.5 9.55 4.78a1 1 0 0 0 .9 0L22 12.5V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/>
+          </svg>
+          Luma
+        </a>
+        <a class="footer-link" href="mailto:gbs@minerva.edu">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h18a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H3zm0 2h18l-9 5.5L3 7zm0 3.3 8.46 5.16a1 1 0 0 0 1.08 0L21 10.3V16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
+          </svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll('.fade-section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

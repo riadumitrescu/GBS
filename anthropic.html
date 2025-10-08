@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Community Build Day · Global Brand Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --charcoal-ink: #1E1E1E;
+      --soft-sand: #F5F1EC;
+      --mint-accent: #A8E6CF;
+      --warm-coral: #FF8A80;
+      --white: #FFFFFF;
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-sand);
+      color: var(--charcoal-ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      padding: 0.3rem;
+      background: var(--white);
+      box-shadow: 0 8px 18px rgba(30, 30, 30, 0.08);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      color: var(--charcoal-ink);
+    }
+
+    .brand-name {
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.6);
+    }
+
+    .back-link {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.6);
+      border-bottom: 1px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      color: var(--charcoal-ink);
+      border-color: rgba(30, 30, 30, 0.4);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem 5rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      margin: 0 0 1rem;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    }
+
+    .page-hero {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3.5rem;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(168, 230, 207, 0.28), rgba(255, 138, 128, 0.18));
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 24px 60px rgba(30, 30, 30, 0.08);
+      margin-bottom: 4rem;
+    }
+
+    .page-hero img {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 18px 48px rgba(30, 30, 30, 0.12);
+    }
+
+    .meta {
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.6);
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .detail-card {
+      padding: 1.6rem;
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 12px 32px rgba(30, 30, 30, 0.06);
+    }
+
+    .detail-title {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      color: rgba(30, 30, 30, 0.6);
+    }
+
+    .detail-text {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .embed-card {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(30, 30, 30, 0.1);
+      box-shadow: 0 18px 48px rgba(30, 30, 30, 0.1);
+      background: var(--white);
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 720px;
+      border: none;
+    }
+
+    footer {
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.6);
+    }
+
+    @media (max-width: 980px) {
+      .page-hero {
+        grid-template-columns: 1fr;
+        padding: 2.8rem;
+      }
+
+      .page-hero img {
+        order: -1;
+      }
+
+      .details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      header {
+        padding: 1.2rem 1rem 0.5rem;
+      }
+
+      main {
+        padding: 1rem 1.2rem 4rem;
+      }
+
+      .page-hero {
+        padding: 2rem;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+
+      iframe {
+        min-height: 560px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <img class="brand-mark" src="assets/gbs_logo/gbs_png.png" alt="GBS logo">
+        <span class="brand-text">
+          <span class="brand-name">Global Brand Studio</span>
+          <span class="brand-sub">Minerva University</span>
+        </span>
+      </a>
+      <a class="back-link" href="index.html#projects">Back to projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="intro">
+        <div class="meta">Claude Community Partners · 2025</div>
+        <h1>Claude Community Build Day</h1>
+        <p>Global Brand Studio joined the Claude Community Build Day to design the visuals that welcomed builders into Anthropic’s world. We produced a poster toolkit, motion loops, and a social launch kit that the community team could release quickly.</p>
+        <p>The system uses soft gradients, bold type, and modular layouts that adapt from print to screens—keeping Claude’s voice present without feeling overly corporate.</p>
+      </div>
+      <img src="assets/anthropic_event/anthropic_event.avif" alt="Claude Community Build Day poster concept by GBS">
+    </section>
+
+    <section class="details">
+      <article class="detail-card">
+        <h2 class="detail-title">Deliverables</h2>
+        <p class="detail-text">Poster series, motion loops, social graphics, on-site signage templates.</p>
+      </article>
+      <article class="detail-card">
+        <h2 class="detail-title">Project Role</h2>
+        <p class="detail-text">Claude Community Partners — visual identity, art direction, and rollout support.</p>
+      </article>
+      <article class="detail-card">
+        <h2 class="detail-title">Tools</h2>
+        <p class="detail-text">Figma, After Effects, Notion launch checklist.</p>
+      </article>
+    </section>
+
+    <section class="embed-card">
+      <iframe title="Claude Community Build Day on Luma" src="https://luma.com/rh6y6y9p" allowfullscreen></iframe>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Global Brand Studio — Minerva University
+  </footer>
+</body>
+</html>
