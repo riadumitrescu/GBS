@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members · Global Brand Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --charcoal-ink: #1E1E1E;
+      --soft-sand: #F5F1EC;
+      --mint-accent: #A8E6CF;
+      --warm-coral: #FF8A80;
+      --white: #FFFFFF;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--soft-sand);
+      color: var(--charcoal-ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(245, 241, 236, 0.92);
+      border-bottom: 1px solid rgba(30, 30, 30, 0.08);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      color: var(--charcoal-ink);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      padding: 0.35rem;
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(30, 30, 30, 0.08);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--charcoal-ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after,
+    .nav-links a.is-active::after {
+      transform: scaleX(1);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    section {
+      margin-bottom: 4.5rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      margin: 0 0 1rem;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 4vw, 3.6rem);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      font-size: 1.03rem;
+    }
+
+    .page-hero {
+      padding: 3.2rem;
+      border-radius: 28px;
+      background: radial-gradient(circle at 20% 20%, rgba(168, 230, 207, 0.25), transparent 30%), radial-gradient(circle at 80% 50%, rgba(255, 138, 128, 0.22), transparent 35%), linear-gradient(135deg, rgba(168, 230, 207, 0.18), rgba(255, 138, 128, 0.14));
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 20px 50px rgba(30, 30, 30, 0.08);
+      margin-bottom: 4rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 138, 128, 0.12);
+      color: var(--warm-coral);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .member-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 1.5rem;
+      border-radius: 22px;
+      background: var(--white);
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      box-shadow: 0 14px 34px rgba(30, 30, 30, 0.08);
+      align-items: center;
+      text-align: center;
+    }
+
+    .member-card.leader {
+      border: 1px solid rgba(168, 230, 207, 0.7);
+      box-shadow: 0 18px 42px rgba(168, 230, 207, 0.35);
+      background: linear-gradient(120deg, rgba(168, 230, 207, 0.14), rgba(255, 138, 128, 0.08), var(--white));
+    }
+
+    .member-photo {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(168, 230, 207, 0.4), rgba(255, 138, 128, 0.35));
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.2rem;
+    }
+
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .initials {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--charcoal-ink);
+    }
+
+    .role {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(30, 30, 30, 0.62);
+      margin-bottom: 0.2rem;
+    }
+
+    .member-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.15rem;
+      justify-content: center;
+    }
+
+    .member-card p {
+      font-size: 0.98rem;
+      margin-bottom: 0.6rem;
+      max-width: 32ch;
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(30, 30, 30, 0.05);
+      border: 1px solid rgba(30, 30, 30, 0.08);
+      font-size: 0.92rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pill-link:hover,
+    .pill-link:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(30, 30, 30, 0.08);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-heading p {
+      margin: 0;
+      max-width: 28rem;
+      color: rgba(30, 30, 30, 0.7);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
+      }
+
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .member-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .member-photo {
+        margin: 0 auto;
+      }
+
+      .member-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 2.4rem 1.2rem 4rem;
+      }
+
+      .page-hero {
+        padding: 2.4rem 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="index.html#top" class="brand">
+        <img class="brand-mark" src="assets/gbs_logo/gbs_png.png" alt="GBS logo">
+        <span class="brand-text">
+          <span class="brand-name">Global Brand Studio</span>
+          <span class="brand-sub">Minerva University</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="members.html" class="is-active">Members</a>
+        <a href="index.html#join">Join</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="badge">Member Roster</div>
+      <h1>Meet the GBS collective.</h1>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Leadership</h2>
+        <p>The core team guiding creative direction and partnerships.</p>
+      </div>
+      <div class="members-grid">
+        <article class="member-card leader">
+          <div class="member-photo">
+            <img src="assets/photos_people/Mathis_Headshot.jpeg" alt="Mathis Henaux portrait">
+          </div>
+          <div>
+            <div class="role">President</div>
+            <h3>Mathis Henaux</h3>
+            <p>I’ve always been in love with art since my childhood. I love acting, filmmaking, and absolutely anything to do with music. Being able to travel the world since such a young age exposed me to art in so many different ways, and I love to carry that into any of the work that I do. Being at GBS is so exhilarating for me because I get to experience first-hand the creativity and innovation of people from all around the world and hopefully contribute something meaningful too!</p>
+          </div>
+        </article>
+
+        <article class="member-card leader">
+          <div class="member-photo">
+            <img src="assets/photos_people/Pia_Headshot.jpg" alt="Sophia Gollon portrait">
+          </div>
+          <div>
+            <div class="role">Vice President</div>
+            <h3>Sophia Gollon</h3>
+            <p>My journey with design began by running fan accounts when I was younger. I went from PicsArt to Photoshop and Canva, which led me to major in Brand Management. I took it a step further with GBS, where I get to put my skills in practice while simultaneously helping school orgs and local businesses thrive. Beyond that, I love trying out new food spots, perfecting my matcha ratio, and doing pilates.</p>
+            <div class="member-links">
+              <a class="pill-link" href="https://drive.google.com/file/d/1Z9Svrbpex5lFCvCxIYbTfvw8HWCRIddw/view?usp=sharing" target="_blank" rel="noopener">Portfolio</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="member-card leader">
+          <div class="member-photo">
+            <img src="assets/photos_people/maria-pic.JPG" alt="Maria Dumitrescu portrait">
+          </div>
+          <div>
+            <div class="role">Design Lead</div>
+            <h3>Maria Dumitrescu</h3>
+            <p>I am a product designer and creative technologist who builds thoughtful digital experiences shaped by emotion and clarity. My work spans AI assisted journaling interfaces, medical device innovation, and storytelling driven prototypes. I love translating quiet human needs into products that feel intuitive and warm. Outside of work, I am usually sketching ideas in cafés, studying how people navigate cities, or experimenting with design systems for my personal projects.</p>
+            <div class="member-links">
+              <a class="pill-link" href="https://mariadumitrescu.com" target="_blank" rel="noopener">Personal site</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Team</h2>
+        <p>Strategists, marketers, coordinators, and visual storytellers moving our projects forward.</p>
+      </div>
+      <div class="members-grid">
+        <article class="member-card">
+          <div class="member-photo">
+            <img src="assets/photos_people/aziza-pic.png" alt="Aziza Abatova portrait">
+          </div>
+          <div>
+            <div class="role">Branding Specialist</div>
+            <h3>Aziza Abatova</h3>
+            <p>I’m passionate about transforming ideas into reality and marketing is my way of doing it. Over the past years, I’ve helped scale startups from small audiences to broader reach through organic marketing, storytelling, and content strategy. Right now, I’m based in San Francisco, soaking up every moment of this creative and entrepreneurial energy.</p>
+            <div class="member-links">
+              <a class="pill-link" href="https://www.linkedin.com/in/aziza-abatova-408055227" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <div class="member-photo">
+            <span class="initials">JS</span>
+          </div>
+          <div>
+            <div class="role">Marketing Strategist</div>
+            <h3>Joseph Sa</h3>
+            <p>I’ve always been fascinated by how ideas turn into impact. What started as a curiosity for marketing and storytelling has grown into a passion for building brands that connect people. Being part of GBS lets me merge creativity and strategy — from researching consumer behavior to crafting campaigns that inspire action. Outside of work, I love exploring new cultures, filming short reels, and finding nuance in everyday stories.</p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <div class="member-photo">
+            <img src="assets/photos_people/ruby-pic.png" alt="Ruby Washio portrait">
+          </div>
+          <div>
+            <div class="role">Marketing Strategist</div>
+            <h3>Ruby Washio</h3>
+            <p>It’s only recently that I’ve realized marketing is just storytelling repackaged. Creative writing, psychology, and event planning – GBS allows me to combine these interests together and turn them into something meaningful, whether it’s promoting a university event or designing new logos.</p>
+            <div class="member-links">
+              <a class="pill-link" href="https://www.linkedin.com/in/rubywashio/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <div class="member-photo">
+            <span class="initials">SD</span>
+          </div>
+          <div>
+            <div class="role">Events Coordinator</div>
+            <h3>Şevval Deniz Taş</h3>
+            <p>Bio coming soon.</p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <div class="member-photo">
+            <img src="assets/photos_people/david-pic.png" alt="David Kang portrait">
+          </div>
+          <div>
+            <div class="role">Visual Director</div>
+            <h3>David Kang</h3>
+            <p>I’m a commercial photographer and event documentary videographer. I build brands through visual storytelling at GBS. My past clients include Taipei City Government, Taiwanese Indigenous communities, and Bay Area startups and NGOs. Outside of work, I’m usually exploring cities through my lens and crashing into different history museums.</p>
+            <div class="member-links">
+              <a class="pill-link" href="https://www.canva.com/design/DAG2qbydAmg/bZ1BwUocWrCnwrW8nzulCw/edit?utm_content=DAG2qbydAmg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener">Portfolio</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
